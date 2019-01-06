@@ -6,17 +6,40 @@
     <groupId>example.com</groupId>
     <artifactId>junit-params-example</artifactId>
     <version>1.0.0</version>
+    <properties>
+        <!-- Build plugins -->
+        <java.version>1.8</java.version>
+        <mvn-compiler-plugin.version>3.7.0</mvn-compiler-plugin.version>
+        <!-- end Build plugins -->
+        <!-- Test -->
+        <junit.version>4.12</junit.version>
+        <junitparams.version>1.1.1</junitparams.version>
+        <!-- end Test -->
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Build with specified Java version. -->
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${mvn-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>pl.pragmatists</groupId>
             <artifactId>JUnitParams</artifactId>
-            <version>1.1.1</version>
+            <version>${junitparams.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
